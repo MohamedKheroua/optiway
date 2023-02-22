@@ -1,0 +1,5 @@
+# list of env var used in this project
+WINDOWS_HOST
+PGDATABASE
+PGUSER
+PGPASSWORD

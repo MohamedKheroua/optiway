@@ -1,0 +1,11 @@
+FROM jupyter/pyspark-notebook:spark-2
+
+COPY requirements.txt /tmp/
+
+USER root
+
+RUN wget https://jdbc.postgresql.org/download/postgresql-42.2.5.jar -P /usr/local/spark-2.4.5-bin-hadoop2.7/jars
+
+# version of pip needed, otherwise psycopg2 is not installed and the docker build fails
+RUN pip install --upgrade pip==21.3.1 && \
+    pip install --requirement /tmp/requirements.txt
